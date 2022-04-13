@@ -9,6 +9,7 @@ class SaveFavoriteCarUseCaseImp implements SaveFavoriteCarUseCase {
 
   @override
   Future<bool> call(CarEntity carEntity) async {
+    carEntity.setExpensiveCar();
     //need to save somewhere, so I call the repository that can be a firebase, a storage...
     return await _saveFavoriteCarRepository(carEntity);
   }

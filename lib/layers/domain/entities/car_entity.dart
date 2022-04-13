@@ -12,4 +12,10 @@ class CarEntity {
   //business rule
   //the car's price is calculated based on the amount of its doors
   double get finalPrice => amountOfDoors * price;
+
+  setExpensiveCar() {
+    if (finalPrice > 10000.00) {
+      return price * 2;
+    }
+  }
 }
