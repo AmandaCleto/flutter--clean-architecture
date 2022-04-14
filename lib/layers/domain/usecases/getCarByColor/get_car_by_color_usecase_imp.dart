@@ -1,7 +1,7 @@
 import 'package:clean_architecture_example/layers/domain/entities/car_entity.dart';
 import 'package:clean_architecture_example/layers/domain/usecases/getCarByColor/get_car_by_color_usecase.dart';
 
-abstract class GetCarByColorUseCaseImp implements GetCarByColorUseCase {
+class GetCarByColorUseCaseImp implements GetCarByColorUseCase {
   @override
   CarEntity call(String color) {
     if (color.contains('red')) {

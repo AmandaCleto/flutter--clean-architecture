@@ -13,9 +13,9 @@ class CarEntity {
   //the car's price is calculated based on the amount of its doors
   double get finalPrice => amountOfDoors * price;
 
-  setExpensiveCar() {
-    if (finalPrice > 10000.00) {
-      return price * 2;
+  setDiscountForExpensiveCars() {
+    if (price >= 30000.00) {
+      price -= 5000.00;
     }
   }
 }
