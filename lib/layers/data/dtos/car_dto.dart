@@ -29,7 +29,7 @@ class CarDto extends CarEntity {
     };
   }
 
-  fromJson(Map map) {
+  static CarDto fromJson(Map map) {
     // receive from API
     //here, the key is our business logic, so it can be named by any name, and the value is the API attribute's name
     return CarDto(
