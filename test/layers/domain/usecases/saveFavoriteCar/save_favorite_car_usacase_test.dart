@@ -1,15 +1,8 @@
+import 'package:clean_architecture_example/layers/data/repositories/save_favorite_car_repository_imp.dart';
 import 'package:clean_architecture_example/layers/domain/entities/car_entity.dart';
-import 'package:clean_architecture_example/layers/domain/repositories/save_favorite_car_repository.dart';
 import 'package:clean_architecture_example/layers/domain/usecases/saveFavoriteCar/save_favorite_car_usacase.dart';
 import 'package:clean_architecture_example/layers/domain/usecases/saveFavoriteCar/save_favorite_car_usecase_imp.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-class SaveFavoriteCarRepositoryImpl implements SaveFavoriteCarRepository {
-  @override
-  Future<bool> call(CarEntity carEntity) async {
-    return carEntity.price > 0;
-  }
-}
 
 void main() {
   test('should save the car successfully', () async {
