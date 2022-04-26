@@ -16,10 +16,15 @@ class CarController {
   late CarEntity car;
 
   getCarByColor(String color) {
-    car = _getCarByColorUseCase.call(color);
+    var result = _getCarByColorUseCase(color);
+
+    result.fold(
+      (error) => print(error.toString()),
+      (success) => car = success,
+    );
   }
 
   saveFavoriteCar(CarEntity car) async {
-    var result = await _saveFavoriteCarUseCase.call(car);
+    var result = await _saveFavoriteCarUseCase(car);
   }
 }

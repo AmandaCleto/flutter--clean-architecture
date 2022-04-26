@@ -15,7 +15,11 @@ void main() {
 
     var result = useCase('blue');
 
-    expect(result, isInstanceOf<CarEntity>());
+    late CarEntity successExpected;
+
+    result.fold((error) => null, (success) => successExpected = success);
+
+    expect(successExpected, isInstanceOf<CarEntity>());
   });
   test('should return a car with four doors when its color is red', () {
     GetCarByColorUseCase useCase = GetCarByColorUseCaseImp(
@@ -26,7 +30,11 @@ void main() {
 
     var result = useCase('red');
 
-    expect(result.amountOfDoors, 4);
+    late CarEntity successExpected;
+
+    result.fold((error) => null, (success) => successExpected = success);
+
+    expect(successExpected.amountOfDoors, 4);
   });
   test('should return a car with two doors when its color is NOT red', () {
     GetCarByColorUseCase useCase = GetCarByColorUseCaseImp(
@@ -36,7 +44,10 @@ void main() {
     );
 
     var result = useCase('yellow');
+    late CarEntity successExpected;
 
-    expect(result.amountOfDoors, 2);
+    result.fold((error) => null, (success) => successExpected = success);
+
+    expect(successExpected.amountOfDoors, 2);
   });
 }

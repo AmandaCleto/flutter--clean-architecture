@@ -18,7 +18,11 @@ void main() {
 
     var result = await useCase(car);
 
-    expect(result, true);
+    late bool successExpected;
+
+    result.fold((error) => null, (success) => successExpected = success);
+
+    expect(successExpected, true);
   });
   test('should save the car unsuccessfully', () async {
     SaveFavoriteCarUseCase useCase = SaveFavoriteCarUseCaseImp(
@@ -33,6 +37,10 @@ void main() {
 
     var result = await useCase(car);
 
-    expect(result, false);
+    late bool successExpected;
+
+    result.fold((error) => null, (success) => successExpected = success);
+
+    expect(successExpected, false);
   });
 }
